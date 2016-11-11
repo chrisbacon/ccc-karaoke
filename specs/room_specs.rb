@@ -7,8 +7,6 @@ require_relative('../person')
 class TestRoom < Minitest::Test
 
     def setup
-        @song1 = Song.new('Leonard Cohen', 'The Stranger Song', ["It's true that all the men you knew were dealers"])
-        @song2 = Song.new('Prince', 'Raspberry Beret', ["I was working part time at a five and dime", "my boss was Mr. McGee"])
         machine = {}
         @guest1 = Person.new("Chris", 30, 100)
         @guest2 = Person.new("Todd", 29, 80)
