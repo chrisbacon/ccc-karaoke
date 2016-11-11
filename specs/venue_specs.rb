@@ -31,6 +31,9 @@ class TestVenue < Minitest::Test
     end
 
     def test_add_guest_to_room__cant_afford_entry
+        @guest2.money = 20
+        result = @venue.add_guest_to_room(@guest2, @room2)
+        assert(!result)
     end
 
 
