@@ -20,6 +20,10 @@ class Venue
         return nil
     end
 
+    def remove_guest(guest)
+        room = find_room_guest_is_in(guest)
+        room.remove_guest(guest)
+    end
 
-
+    
 end
