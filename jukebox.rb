@@ -1,6 +1,8 @@
 class Jukebox
+    attr_reader :current_song
     def initialize(songs)
         @songs = songs
+        @current_song = nil
     end
 
     def number_of_songs()
@@ -22,5 +24,15 @@ class Jukebox
         return songs_by_artist
 
     end
+
+    def select_song_by_title(title)
+
+        titles = @songs.map{ |song| song.title}
+        i = titles.index(title)
+        @current_song = @songs[i]
+
+    end
+
+
     
 end

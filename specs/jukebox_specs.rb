@@ -37,5 +37,13 @@ class TestJukebox < Minitest::Test
         assert_equal(songs_by_artist, @jukebox.get_song_titles_by_artist)
     end
 
+    def test_return_current_song
+        assert_equal(nil, @jukebox.current_song)
+    end
+
+    def test_song_by_title
+        @jukebox.select_song_by_title("The Stranger Song")
+        assert_equal(@song1, @jukebox.current_song)
+    end
 
 end
