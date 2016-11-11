@@ -13,6 +13,10 @@ class Venue
         return false
     end
     
-    
+    def find_room_guest_is_in(guest)
+        for room in @rooms
+            return room if room.has_guest?(guest)
+        end
+    end
 
 end
