@@ -2,6 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative("../venue")
 require_relative("../room")
+require_relative("../person")
 
 class TestVenue < Minitest::Test
 
@@ -12,7 +13,7 @@ class TestVenue < Minitest::Test
         @guest2 = Person.new("Todd", 29, 80)
 
         @room1 = Room.new('Classic', 30, 1, {})
-        @room.add_guest(@guest1)
+        @room1.add_guest(@guest1)
 
         @room2 = Room.new('Modern', 30, 1, {})
         rooms = [@room1, @room2]
