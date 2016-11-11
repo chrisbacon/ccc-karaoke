@@ -25,4 +25,14 @@ class TestVenue < Minitest::Test
         assert_equal([@room2], @venue.find_available_rooms())
     end
 
+    def test_add_guest_to_room__can_afford_entry
+        result = @venue.add_guest_to_room(@guest2, @room2)
+        assert(result)
+    end
+
+    def test_add_guest_to_room__cant_afford_entry
+    end
+
+
+
 end
