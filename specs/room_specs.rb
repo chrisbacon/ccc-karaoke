@@ -13,11 +13,15 @@ class TestRoom < Minitest::Test
         @guest1 = Person.new("Chris", 30, 100)
         @guest2 = Person.new("Todd", 29, 80)
 
-        @room = Room.new('Classic', 1, {})
+        @room = Room.new('Classic', 30, 1, {})
     end
 
     def test_room_has_name
         assert_equal("Classic", @room.name)
+    end
+
+    def test_room_has_entry_fee
+        assert_equal(30, @room.entry_fee)
     end
 
     def test_room_has_size
