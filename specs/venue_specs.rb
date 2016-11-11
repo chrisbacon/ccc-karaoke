@@ -47,6 +47,11 @@ class TestVenue < Minitest::Test
         assert_equal(nil, room)
     end
 
+    def test_guest_has_been_charged_when_added_to_room
+        @venue.add_guest_to_room(@guest2, @room2)
+        assert_equal(50, @guest2.money)
+    end
+
 
 
 end
