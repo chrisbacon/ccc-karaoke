@@ -17,6 +17,9 @@ class Venue
         for room in @rooms
             return room if room.has_guest?(guest)
         end
+        return nil
     end
+
+
 
 end

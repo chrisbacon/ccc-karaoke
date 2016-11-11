@@ -41,6 +41,12 @@ class TestVenue < Minitest::Test
         assert_equal(@room1, room)
     end
 
+    def test_remove_guest
+        @venue.remove_guest(@guest1)
+        room = @venue.find_room_guest_is_in(@guest1)
+        assert_equal(nil, room)
+    end
+
 
 
 end
