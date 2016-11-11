@@ -6,7 +6,7 @@ require_relative('../song')
 class TestPerson < Minitest::Test
 
     def setup
-        @person = Person.new('Chris', 30, 100)
+        @person = Person.new('Chris', 30, 100) 
     end
 
     def test_person_has_name
@@ -27,7 +27,7 @@ class TestPerson < Minitest::Test
     end
 
     def test_person_can_sing
-        song = Song.new()
+        song = Song.new('Leonard Cohen', 'The Stranger Song', ["It's true that all the men you knew were dealers"])
         assert_equal("It's true that all the men you knew were dealers", @person.sing(song))
     end
 
