@@ -24,7 +24,7 @@ class Viewer
         return age
     end
 
-    def get_guest_wallet
+    def get_guest_money
         puts "Enter money: "
         money = gets.chomp.to_i
         return money
@@ -38,7 +38,7 @@ class Viewer
         puts "Goodbye! Thank you for using CCC!"
     end
 
-    def print_response
-        puts @log.current_message
+    def display_rooms(rooms)
+        puts "The following rooms are available: #{rooms.join(" ")}"
     end
 end

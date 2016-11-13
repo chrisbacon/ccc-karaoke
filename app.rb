@@ -37,7 +37,8 @@ class CCC
     def checkin()
         guest = create_guest()
         rooms = find_available_rooms()
-    end
+        viewer.display_rooms
+    end 
 
     def create_guest()
         name = @viewer.get_guest_name
@@ -45,8 +46,6 @@ class CCC
         money = @viewer.get_guest_money
         return Person.new(name, age, money)
     end
-
-
 
     def checkout()
         puts "Checking out"
