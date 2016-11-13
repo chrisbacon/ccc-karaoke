@@ -13,10 +13,16 @@ class Venue
     end
 
     def add_guest_to_room(guest, room)
-        if ( guest.can_pay?(room.entry_fee) && !room.is_full? )
+        if ( can_guest_be_added?(guest, room) )
             room.add_guest(guest) 
             guest.pay(room.entry_fee) 
         end
+    end
+
+    def can_guest_be_added?(guest, room)
+        @log.add_message("Guest cannot afford entry") if !guest.can_pay?(room.entry_fee)
+        @log.add_message("Room is full") if room.is_full
+            return guest.can_pay?(room.entry_fee) && !room.is_full? 
     end
     
     def find_room_guest_is_in(guest)
