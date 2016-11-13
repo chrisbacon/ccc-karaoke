@@ -9,11 +9,10 @@ class Venue
     end
 
     def add_guest_to_room(guest, room)
-        if guest.money > room.entry_fee
-            charge_guest(guest, room.entry_fee)
-            return room.add_guest(guest) 
+        if ( guest.can_pay?(room.entry_fee) && !room.is_full? )
+            room.add_guest(guest) 
+            guest.pay(room.entry_fee)
         end
-        return false
     end
     
     def find_room_guest_is_in(guest)
@@ -27,10 +26,4 @@ class Venue
         room = find_room_guest_is_in(guest)
         room.remove_guest(guest)
     end
-
-    def charge_guest(guest, fee)
-        guest.pay(fee)
-    end
-
-
 end

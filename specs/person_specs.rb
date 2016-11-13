@@ -21,8 +21,8 @@ class TestPerson < Minitest::Test
         assert_equal(100, @person.money)
     end
 
-    def test_money_can_be_changed
-        @person.money -= 30
+    def test_person_can_pay
+        @person.pay(30)
         assert_equal(70, @person.money)
     end
 

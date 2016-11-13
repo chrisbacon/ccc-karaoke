@@ -2,7 +2,7 @@ require('minitest/autorun')
 require('minitest/rg')
 require_relative('../log')
 
-class Testlog < Minitest::Test
+class TestLog < Minitest::Test
 
     def setup
 

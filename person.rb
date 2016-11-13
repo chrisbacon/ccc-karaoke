@@ -15,5 +15,9 @@ class Person
     def pay(fee)
         @money -= fee
     end
+
+    def can_pay?(fee)
+        return @money >= fee
+    end
       
 end

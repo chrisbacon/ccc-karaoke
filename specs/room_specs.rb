@@ -42,8 +42,8 @@ class TestRoom < Minitest::Test
 
     def test_cannot_add_guests_above_capacity
         @room.add_guest(@guest1)
-        was_guest_added = @room.add_guest(@guest2)
-        assert_equal(false, was_guest_added)
+        @room.add_guest(@guest2)
+        assert_equal(1, @room.number_of_guests)
     end
 
     def test_remove_guest

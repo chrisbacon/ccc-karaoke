@@ -10,9 +10,7 @@ class Room
     end
 
     def add_guest(guest)
-        return false if is_full?
-        @guests.push(guest)
-        return true
+        @guests.push(guest) if !is_full?
     end
 
     def remove_guest(guest)
