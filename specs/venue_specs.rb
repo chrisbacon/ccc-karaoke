@@ -3,11 +3,12 @@ require('minitest/rg')
 require_relative("../venue")
 require_relative("../room")
 require_relative("../person")
+require_relative("../log")
 
 class TestVenue < Minitest::Test
 
     def setup
-        log = []
+        log = Log.new("Start of log")
         machine = {}
         @guest1 = Person.new("Chris", 30, 100)
         @guest2 = Person.new("Todd", 29, 80)
@@ -24,6 +25,7 @@ class TestVenue < Minitest::Test
 
     def test_find_available_rooms
         assert_equal([@room2], @venue.find_available_rooms())
+        assert_equal("The following rooms are empty: Modern", @venue.log.current_message)
     end
 
     def test_add_guest_to_room__can_afford_entry

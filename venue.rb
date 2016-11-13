@@ -1,17 +1,21 @@
 class Venue
+    attr_reader :log
     def initialize(rooms, log)
         @rooms = rooms
         @log = log
     end
     
     def find_available_rooms
-        return @rooms.select { |room| !room.is_full?}
+        found_rooms = @rooms.select { |room| !room.is_full?}
+        room_names = found_rooms.map{ |room| room.name}
+        @log.add_message("The following rooms are empty: #{room_names.join(" ")}")
+        return found_rooms 
     end
 
     def add_guest_to_room(guest, room)
         if ( guest.can_pay?(room.entry_fee) && !room.is_full? )
             room.add_guest(guest) 
-            guest.pay(room.entry_fee)
+            guest.pay(room.entry_fee) 
         end
     end
     
