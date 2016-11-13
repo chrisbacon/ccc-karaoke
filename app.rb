@@ -23,11 +23,11 @@ class CCC
 
     def handle_instruction(instruction)
         case instruction
-        when "checkin" || "in"
+        when "check in", "in"
             checkin()
-        when "checkout" || "checkout"
+        when "check out", "out"
             checkout()
-        when "exit" || "quit"
+        when "exit", "quit"
             @running = false
         else
             @viewer.bad_input
@@ -35,8 +35,18 @@ class CCC
     end
 
     def checkin()
-        puts "Checking in"
+        guest = create_guest()
+        rooms = find_available_rooms()
     end
+
+    def create_guest()
+        name = @viewer.get_guest_name
+        age = @viewer.get_guest_age
+        money = @viewer.get_guest_money
+        return Person.new(name, age, money)
+    end
+
+
 
     def checkout()
         puts "Checking out"

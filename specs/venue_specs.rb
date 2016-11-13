@@ -25,7 +25,6 @@ class TestVenue < Minitest::Test
 
     def test_find_available_rooms
         assert_equal([@room2], @venue.find_available_rooms())
-        assert_equal("The following rooms are empty: Modern", @venue.log.current_message)
     end
 
     def test_add_guest_to_room__can_afford_entry
