@@ -73,7 +73,8 @@ class CCC
     end
 
     def checkout()
-        puts "Checking out"
+        guest_name = @viewer.ask_for_guest()
+        
     end
 
 end

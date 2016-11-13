@@ -48,13 +48,13 @@ class TestRoom < Minitest::Test
 
     def test_remove_guest
         @room.add_guest(@guest1)
-        @room.remove_guest(@guest1)
+        @room.remove_guest("Chris")
         assert_equal(0, @room.number_of_guests)
     end
 
     def test_has_guest
         @room.add_guest(@guest1)
-        assert_equal(true, @room.has_guest?(@guest1))
+        assert_equal(true, @room.has_guest?("Chris"))
     end   
 
 end

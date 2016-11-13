@@ -13,12 +13,14 @@ class Room
         @guests.push(guest) if !is_full?
     end
 
-    def remove_guest(guest)
-        @guests.delete(guest)
+    def remove_guest(name)
+        guest = @guests.select{ |g| g.name == name }
+        @guests.delete(guest[0])
     end
 
-    def has_guest?(guest)
-        return @guests.include?(guest)
+    def has_guest?(name)
+        guest_names = @guests.map { |g| g.name }
+        return guest_names.include?(name)
     end
 
     def number_of_guests

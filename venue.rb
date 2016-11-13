@@ -23,9 +23,9 @@ class Venue
             return guest.can_pay?(room.entry_fee) && !room.is_full? 
     end
     
-    def find_room_guest_is_in(guest)
+    def find_room_guest_is_in(name)
         for room in @rooms
-            return room if room.has_guest?(guest)
+            return room if room.has_guest?(name)
         end
         return nil
     end
