@@ -51,4 +51,17 @@ class Viewer
     def good_checkin(guest, room)
         puts "#{guest.name} was succesfully checked into the #{room.name} room!"
     end
+
+    def ask_for_guest()
+        puts "Enter the name of the guest to checkout:"
+        return name = gets.chomp
+    end
+
+    def guest_not_found()
+        puts "Guest not found"
+    end
+
+    def good_checkout(guest_name, room_name)
+        puts "#{guest_name} was checked out of #{room_name}"
+    end
 end

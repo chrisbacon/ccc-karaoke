@@ -9,15 +9,15 @@ class TestVenue < Minitest::Test
 
     def setup
         log = Log.new("Start of log")
-        machine = {}
+        jukebox = Jukebox.new([])
         @guest1 = Person.new("Chris", 30, 100)
         @guest2 = Person.new("Todd", 29, 80)
         @guest3 = Person.new("Rob", 31, 100)
 
-        @room1 = Room.new('Classic', 30, 1, {})
+        @room1 = Room.new('Classic', 30, 1, jukebox
         @room1.add_guest(@guest1)
 
-        @room2 = Room.new('Modern', 100, 2, {})
+        @room2 = Room.new('Modern', 100, 2, jukebox
         rooms = [@room1, @room2]
 
         @venue = Venue.new(rooms, log)

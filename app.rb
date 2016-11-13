@@ -74,7 +74,15 @@ class CCC
 
     def checkout()
         guest_name = @viewer.ask_for_guest()
-        
+        room = @venue.find_room_guest_is_in(guest_name)
+
+        if !room
+            @viewer.bad_input
+            return
+        end
+
+        @venue.remove_guest(guest_name)
+        @viewer.good_checkout(guest_name, room.name)
     end
 
 end
