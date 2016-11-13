@@ -36,8 +36,25 @@ class CCC
 
     def checkin()
         guest = create_guest()
-        rooms = find_available_rooms()
-        viewer.display_rooms
+
+        rooms = @venue.find_available_rooms()
+        @viewer.display_rooms(rooms)
+
+        room = nil
+        while !room
+            room = choose_room_from(rooms)
+            @viewer.bad_input if !room
+        end
+
+        success = @venue.add_guest_to_room(guest, room)
+
+        if success
+            @viewer.good_checkin(guest, room) 
+            return
+        end
+
+        @viewer.bad_checkin(guest, room) 
+
     end 
 
     def create_guest()
@@ -45,6 +62,14 @@ class CCC
         age = @viewer.get_guest_age
         money = @viewer.get_guest_money
         return Person.new(name, age, money)
+    end
+
+    def choose_room_from(rooms)
+        input = @viewer.ask_for_room
+        for room in rooms
+            return room if room.name == input
+        end
+        return nil
     end
 
     def checkout()

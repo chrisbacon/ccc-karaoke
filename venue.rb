@@ -7,7 +7,6 @@ class Venue
     
     def find_available_rooms
         found_rooms = @rooms.select { |room| !room.is_full?}
-        room_names = found_rooms.map{ |room| room.name}
         return found_rooms 
     end
 
@@ -21,8 +20,6 @@ class Venue
     end
 
     def can_guest_be_added?(guest, room)
-        @log.add_message("Guest cannot afford entry") if !guest.can_pay?(room.entry_fee)
-        @log.add_message("Room is full") if room.is_full?
             return guest.can_pay?(room.entry_fee) && !room.is_full? 
     end
     

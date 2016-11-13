@@ -9,7 +9,12 @@ class Viewer
 
     def ask_for_instruction
         puts "Do you wish to check in or check out a guest?"
-        instruction = gets.chomp
+        return instruction = gets.chomp
+    end
+
+    def ask_for_room
+        puts "Which room should the guest check in to?"
+        return input = gets.chomp
     end
 
     def get_guest_name
@@ -39,6 +44,11 @@ class Viewer
     end
 
     def display_rooms(rooms)
-        puts "The following rooms are available: #{rooms.join(" ")}"
+        room_names = rooms.map{ |r| r.name }
+        puts "The following rooms are available: #{room_names.join(" | ")}"
+    end
+
+    def good_checkin(guest, room)
+        puts "#{guest.name} was succesfully checked into the #{room.name} room!"
     end
 end
